@@ -25,6 +25,7 @@ nav {
   top: 0;
   left: 0;
   z-index: 1000;
+  overflow-y: auto;
 }
 .navhover li:hover {
   background:#08C6AB;
