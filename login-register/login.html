@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="container">
+      <form action="login.php" method="post">
+        <div class="form-group">
+            <input type="text" placeholder="Username:" name="email" class="form-control">
+        </div>
+        <div class="form-group">
+            <input type="password" placeholder="Enter Password:" name="password" class="form-control">
+        </div>
+        <div class="form-btn">
+            <input type="submit" value="Login" name="login" class="btn btn-primary">
+        </div>
+      </form>
+     <div><p class="text-dark">Not registered yet? <a href="register.html" style="color: blue;">Register Here</a></p></div>
+    </div>
+</body>
+    <script src="js/jquery-3.6.0.js"></script>
+    <script src="js/bootstrap.js"></script>
+</html>

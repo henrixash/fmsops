@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../styles.css">
+    <script src="../js/jquery-3.6.0.js"></script>
+</head>
+<body>
+    <section>
+        <a name="top">
+            <nav>
+              <h3 class="menuTxt">Menu</h3>
+              <ul class="navhover">
+                <li><img style="margin-right:5px;" src="../img/profile-user.png" height="25px" width="25px"><a href="#">Profile</a></li>
+                <li><img style="margin-right:5px;" src="../img/dashboard.png" height="25px" width="25px"><a href="../index.html" >Dashboard</a></li>
+                <li><img style="margin-right:5px;" src="../img/notification.png" height="25px" width="25px"><a href="reminder.html">Reminders</a></li>
+                <li><img style="margin-right:5px;" src="../img/list.png" height="25px" width="25px"><a href="payment.html">Payment History</a></li>
+              </ul>
+              <br>
+              <ul class="navhover">
+                <li><img style="margin-right:5px;" src="../img/logout.png" height="25px" width="25px"><a href="../login-register/login.html">Sign Out</a></li>
+              </ul>
+            </nav>
+
+        <article>
+            <div id="note" style="display: none; position: fixed; top: 20px; right: 20px; padding: 10px; background-color: #f44336; color: white; z-index: 100;">
+                You can only change your username.
+            </div>
+
+            <div class="profile-info">
+                <h2>Edit Profile</h2>
+                <form>
+                    <img id="preview" src="../img/user.png" width="250" height="250" style="display: block; margin: auto;"/>
+					<br>
+					<input type="file" id="uploadimg" name="mypic" onchange="previewFile(this);" hidden />
+					<button type="button" class="btn" onclick="document.getElementById('uploadimg').click();" style="display: block; margin: auto;">Upload image</button><br><br>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" value="online">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" value="Deena Lee Go" disabled>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" value="sia@gmail.com">
+                    <label for="contact">Contact Info:</label>
+                    <input type="text" id="contact" name="contact" placeholder="09123456789">
+                    <label for="address">Address:</label>
+                    <input type="text" id="address" name="address" value="Bayombong, Nueva Vizcaya">
+                    <label for="college">College:</label>
+                    <input type="text" id="college" name="college" value="College of Arts and Sciences" disabled>
+                    <br>
+                    <br>
+                    <input type="submit" value="Save">
+                </form>
+            </div>
+        </article>
+    </section>
+    <script>
+        window.onload = function() {
+            var note = document.getElementById('note');
+            note.style.display = 'block'; // Show the note
+            setTimeout(function() {
+                note.style.opacity = '0'; // Start fading out
+                setTimeout(function() {
+                    note.style.display = 'none'; // Hide the note after it's faded out
+                }, 1000); // Wait for 1 second for the fade out to finish
+            }, 5000); // Wait for 5 seconds before starting to fade out
+        };
+        </script>
+
+    <script>
+		function previewFile(input){
+			 var file = $("input[type=file]").get(0).files[0];
+			 if(file){
+				 var reader = new FileReader();
+				 reader.onload = function(){
+					 $("#preview").attr("src", reader.result);
+				 }
+				 reader.readAsDataURL(file);
+			 }
+		 }
+	 </script>
+	 
+	 <script>
+			 function updateValue() {
+				 const rangeInput = document.getElementById("rangeInput");
+				 const displayValue = document.getElementById("displayValue");
+	 
+				 displayValue.textContent = rangeInput.value;
+			 }
+	</script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" href="../styles.css">
+    <title>Receipt</title>
+</head>
+<body>
+    <section>
+        <a name="top">
+        <nav>
+          <h3 class="menuTxt">Menu</h3>
+          <ul class="navhover">
+            <li><img style="margin-right:5px;" src="../img/profile-user.png" height="25px" width="25px"><a href="profile.html">Profile</a></li>
+            <li><img style="margin-right:5px;" src="../img/dashboard.png" height="25px" width="25px"><a href="../index.html" >Dashboard</a></li>
+            <li><img style="margin-right:5px;" src="../img/notification.png" height="25px" width="25px"><a href="reminder.html">Reminders</a></li>
+            <li><img style="margin-right:5px;" src="../img/list.png" height="25px" width="25px"><a href="payment.html">Payment History</a></li>
+          </ul>
+          <br>
+          <ul class="navhover">
+            <li><img style="margin-right:5px;" src="../img/logout.png" height="25px" width="25px"><a href="../login-register/login.html">Sign Out</a></li>
+          </ul>
+        </nav>
+       
+        <article>
+            <div id="receipt" class="receipt">
+                <h2>Payment Receipt</h2>
+                <p><strong>Receipt No.:</strong> 1234567890</p>
+                <p><strong>Date:</strong> 24th February 2024</p>
+        
+                <div class="receipt-details">
+                    <h3>Payer Details:</h3>
+                    <p><strong>Name:</strong> Deena Lee Go</p>
+                    <p><strong>Email:</strong> sia@gmail.com</p>
+                </div>
+        
+                <div class="receipt-details">
+                    <h3>Payment Details:</h3>
+                    <p><strong>Fine Description:</strong> Event Absences</p>
+                    <p><strong>Fine Amount:</strong> Php 276.00</p>
+                </div>
+        
+                <div class="receipt-details">
+                    <h3>Payment Method:</h3>
+                    <p><strong>Type:</strong> GCash</p>
+                    <p><strong>GCash Number:</strong>0917XXXXXXX</p>
+                </div>
+        
+                <p>Thank you for your payment!</p>
+                <!--<p><em>This is a computer-generated receipt and does not require a signature.</em></p>-->
+                <button class="svimg" id="save-img">Save Receipt</button>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+        <script>
+        document.getElementById('save-img').addEventListener('click', function() {
+    var saveButton = document.getElementById('save-img');
+    saveButton.style.display = 'none';  // Hide the button
+
+    var receipt = document.getElementById('receipt');
+    domtoimage.toPng(receipt)
+        .then(function (dataUrl) {
+            var link = document.createElement('a');
+            link.download = 'receipt.png';
+            link.href = dataUrl;
+            link.click();
+
+            saveButton.style.display = 'block';  // Show the button again
+        })
+        .catch(function (error) {
+            console.error('oops, something went wrong!', error);
+        });
+});
+        </script>
+            </div>
+        </article>
+     </section>
+</body>
+
+</html>
+

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>Dashboard</title>
+    <script>
+        window.onload = function() {
+            // Get the modal
+            var modal = document.getElementById("myModal");
+
+            // Get the button that opens the modal
+            var btn = document.getElementById("myBtn");
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user loads the page, open the modal 
+            modal.style.display = "block";
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        };
+    </script>
+</head>
+<body>
+    <section>
+        <a name="top">
+        <nav>
+          <h3 class="menuTxt">Menu</h3>
+          <ul class="navhover">
+            <li><img style="margin-right:5px;" src="img/profile-user.png" height="25px" width="25px"><a href="pages/profile.html">Profile</a></li>
+            <li><img style="margin-right:5px;" src="img/dashboard.png" height="25px" width="25px"><a href="#" >Dashboard</a></li>
+            <li><img style="margin-right:5px;" src="img/notification.png" height="25px" width="25px"><a href="pages/reminder.html">Reminders</a></li>
+            <li><img style="margin-right:5px;" src="img/list.png" height="25px" width="25px"><a href="pages/payment.html">Payment History</a></li>
+          </ul>
+          <br>
+          <ul class="navhover">
+            <li><img style="margin-right:5px;" src="img/logout.png" height="25px" width="25px"><a href="login-register/login.html">Sign Out</a></li>
+          </ul>
+        </nav>
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <p>We kindly remind you that the payment for this semester's fees is due. <br> Prompt settlement of your account will be greatly appreciated.</p>
+            </div>
+        </div>
+        <article class="dash">
+            <div class="welcome">
+                Welcome to your Dashboard, <span id="username">user-103</span>!
+            </div>
+            <img class="profile-pic" src="img/profile-user.png" alt="Profile Picture">
+        </article>
+
+        <article>
+             <!-- New div for random text -->
+        <div id="random-text" class="random-text">Loading...</div>
+        <script>
+           window.onload = function() {
+    var quotes = [
+        "The only way to do great work is to love what you do.",
+        "Believe you can and you're halfway there.",
+        "Don't watch the clock; do what it does. Keep going.",
+        "Challenges are what make life interesting and overcoming them is what makes life meaningful. — Joshua J. Marine",
+        "The only thing that overcomes hard luck is hard work. — Harry Golden",
+        "Life’s challenges are not supposed to paralyze you; they’re supposed to help you discover who you are. — Bernice Johnson Reagon",
+        "Start by doing what’s necessary; then do what’s possible; and suddenly you are doing the impossible. — Francis of Assisi",
+        "One of the finest beliefs I developed years ago that helped me to enjoy all of my life experience was the idea that there are no bad experiences, that no matter what I go through in life – whether it’s a challenging experience or a pleasurable one – every experience provides me something of value if I look for it. — Tony Robbins"
+        // Add more quotes as needed
+    ];
+    var quoteElement = document.getElementById('random-text');
+    function updateQuote() {
+        var quote = quotes[Math.floor(Math.random() * quotes.length)];
+        quoteElement.textContent = quote;
+    }
+    updateQuote();
+    setInterval(updateQuote, 5 * 60 * 1000); // Update the quote every 5 minutes
+};
+        </script>
+        </article>
+
+        <article>
+            <div class="container">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="dashboard">
+                            <div class="balance">
+                                <b>Outstanding Balance:</b> <span id="balance">Php 136.00</span>
+                            </div>
+                            <!-- Rest of your dashboard -->
+                        </div>
+                    </div>
+
+                    <div class="col-6 ">
+                        <form class="form-style form-payment" action="pages/receipt.html">
+                            <label class="label-style" for="payment-method">Payment Method:</label>
+                            <select class="select-style" id="payment-method" name="payment-method">
+                                <option value="credit-card">GCash</option>
+                                <option value="debit-card">PayMaya</option>
+                                <option value="paypal">PayPal</option>
+                                <option value="bank-transfer">Bank Transfer</option>
+                            </select>
+                            <input class="submit-style input-submit" type="submit" value="Submit">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <button id="scroll-button" style="position: fixed; bottom: 20px; right: 20px;">⬇️</button>
+     </section>
+</body>
+<script>
+    var scrollButton = document.getElementById('scroll-button');
+
+window.onscroll = function() {
+    // If we're near the top of the page, the button scrolls down
+    if (window.pageYOffset < window.innerHeight) {
+        scrollButton.textContent = '⬇️';
+    } else {
+        // Otherwise, it scrolls up
+        scrollButton.textContent = '⬆️';
+    }
+};
+
+scrollButton.onclick = function() {
+    if (window.pageYOffset < window.innerHeight) {
+        // If we're near the top of the page, scroll to the bottom
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    } else {
+        // Otherwise, scroll to the top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+};
+</script>
+</html>
+

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" href="../styles.css">
+    <title>Reminders</title>
+</head>
+<body>
+    <section>
+        <a name="top">
+        <nav>
+          <h3 class="menuTxt">Menu</h3>
+          <ul class="navhover">
+            <li><img style="margin-right:5px;" src="../img/profile-user.png" height="25px" width="25px"><a href="profile.html">Profile</a></li>
+            <li><img style="margin-right:5px;" src="../img/dashboard.png" height="25px" width="25px"><a href="../index.html" >Dashboard</a></li>
+            <li><img style="margin-right:5px;" src="../img/notification.png" height="25px" width="25px"><a href="#">Reminders</a></li>
+            <li><img style="margin-right:5px;" src="../img/list.png" height="25px" width="25px"><a href="payment.html">Payment History</a></li>
+          </ul>
+          <br>
+          <ul class="navhover">
+            <li><img style="margin-right:5px;" src="../img/logout.png" height="25px" width="25px"><a href="login-register/login.html">Sign Out</a></li>
+          </ul>
+        </nav>
+       
+        <article>
+            <div>
+                <h2 style="background-color: #d3d3d3; padding: 20px; border-radius: 7px 7px 0px 0px;">Reminders</h2>
+                <div class="rem">
+                    <div class="reminder" onclick="this.classList.toggle('expanded');">This is a gentle reminder that your fine of Php 50.00 is due by the end of this week. Please make the payment to avoid any additional late fees.</div>
+                    <div class="reminder" onclick="this.classList.toggle('expanded');">Please note that a fine of Php 30.00 is due today. We kindly request you to clear the dues at your earliest convenience to avoid further penalties.</div>
+                    <script>
+                        // Get all elements with the 'reminder' class
+                        var reminders = document.getElementsByClassName('reminder');
+                        
+                        // Loop through the elements and add the onclick function
+                        for (var i = 0; i < reminders.length; i++) {
+                            reminders[i].onclick = function() {
+                                this.classList.toggle('expanded');
+                            }
+                        }
+                        </script>
+                </div>
+            </div>
+        </article>
+
+     </section>
+</body>
+
+</html>
+
