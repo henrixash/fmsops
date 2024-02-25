@@ -381,3 +381,7 @@ tr:hover {
       text-overflow: clip;
   }
 }
+img {
+  max-width: 100%;
+  height: auto;
+}
